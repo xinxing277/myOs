@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="os.userController">
+   <top>
+      <HBox spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane fx:id="JcbTitlePane" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" text="作业调度">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <content>
+                  <VBox maxWidth="1.7976931348623157E308" spacing="8.0">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <children>
+                        <RadioButton fx:id="FCFS_Jobscheduling" mnemonicParsing="false" selected="true" text="先来先服务">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="JcbToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="SJF_Jobscheduling" mnemonicParsing="false" text="短作业优先" toggleGroup="$JcbToggleGroup" />
+                        <RadioButton fx:id="HRN_Jobscheduling" mnemonicParsing="false" text="高响应比优先" toggleGroup="$JcbToggleGroup" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane fx:id="PcbTitlePane" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" text="进程调度">
+               <HBox.margin>
+                  <Insets left="8.0" right="8.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <content>
+                  <VBox maxWidth="1.7976931348623157E308" spacing="8.0">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <children>
+                        <RadioButton fx:id="FCFS_Pcbscheduling" mnemonicParsing="false" selected="true" text="先来先服务">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="PcbToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="SJF_Pcbscheduling" mnemonicParsing="false" text="短作业优先" toggleGroup="$PcbToggleGroup" />
+                        <RadioButton fx:id="RR_Pcbscheduling" mnemonicParsing="false" text="时间片轮转" toggleGroup="$PcbToggleGroup" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <VBox maxWidth="1.7976931348623157E308" spacing="20.0">
+               <children>
+                  <Button fx:id="beginButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#beginAction" text="开始" />
+                  <Button fx:id="continueButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#continueAction" text="继续" />
+                  <Button fx:id="overButton" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#overAction" text="结束" />
+               </children>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="现在的时间是" />
+                  <TextField fx:id="timeTextField" prefHeight="36.0" prefWidth="0.0" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="8.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox maxWidth="1.7976931348623157E308" prefHeight="264.0" prefWidth="570.0" spacing="8.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="Pcb_Now" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin></TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="空闲起址  分区大小" textAlignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin></Text>
+                  <Text fx:id="avegPcbTime" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text fx:id="freeTapeDriveNum" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3" />
+                  <Text opacity="0.23" strokeType="OUTSIDE" strokeWidth="0.0" text="可用磁带机" GridPane.rowIndex="3" />
+                  <Text opacity="0.29" strokeType="OUTSIDE" strokeWidth="0.0" text="系统平均带权周转时间" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ListView fx:id="listGridPane" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </ListView>
+                  <ListView fx:id="donePcbGridPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </ListView>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </GridPane>
+            <BorderPane />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="8.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>
